@@ -1,0 +1,5 @@
+# Ignore Visual Studio Code user settings folder
+.vscode/
+
+# Ignore Visual Studio folder
+.vs/
