@@ -1,20 +1,32 @@
-// BibMat.cpp : This file contains the 'main' function. Program execution begins and ends there.
-//
+#include <SFML/Graphics.hpp>
 
-#include <iostream>
+int main() {
+    // Create a window
+    sf::RenderWindow window(sf::VideoMode(800, 600), "SFML Green Circle");
 
-int main()
-{
-    std::cout << "Hello World!\n";
+    // Create a green circle
+    sf::CircleShape greenCircle(50); // radius of 50 pixels
+    greenCircle.setFillColor(sf::Color::Green);
+    greenCircle.setPosition(375, 275); // position the circle at the center of the window
+
+    // Main loop
+    while (window.isOpen()) {
+        // Process events
+        sf::Event event;
+        while (window.pollEvent(event)) {
+            if (event.type == sf::Event::Closed)
+                window.close();
+        }
+
+        // Clear the window
+        window.clear();
+
+        // Draw the green circle
+        window.draw(greenCircle);
+
+        // Display the contents of the window
+        window.display();
+    }
+
+    return 0;
 }
-
-// Run program: Ctrl + F5 or Debug > Start Without Debugging menu
-// Debug program: F5 or Debug > Start Debugging menu
-
-// Tips for Getting Started: 
-//   1. Use the Solution Explorer window to add/manage files
-//   2. Use the Team Explorer window to connect to source control
-//   3. Use the Output window to see build output and other messages
-//   4. Use the Error List window to view errors
-//   5. Go to Project > Add New Item to create new code files, or Project > Add Existing Item to add existing code files to the project
-//   6. In the future, to open this project again, go to File > Open > Project and select the .sln file
