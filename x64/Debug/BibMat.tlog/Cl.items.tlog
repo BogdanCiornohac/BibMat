@@ -1,2 +1,5 @@
 C:\Users\bogda\Desktop\BibMat\BibMat.cpp;C:\Users\bogda\Desktop\BibMat\x64\Debug\BibMat.obj
-C:\Users\bogda\Desktop\BibMat\src\main.cpp;C:\Users\bogda\Desktop\BibMat\x64\Debug\main.obj
+C:\Users\bogda\Desktop\BibMat\src\Game.cpp;C:\Users\bogda\Desktop\BibMat\x64\Debug\Game.obj
+C:\Users\bogda\Desktop\BibMat\src\Matrici\MatriciMenu.cpp;C:\Users\bogda\Desktop\BibMat\x64\Debug\MatriciMenu.obj
+C:\Users\bogda\Desktop\BibMat\src\MenuState.cpp;C:\Users\bogda\Desktop\BibMat\x64\Debug\MenuState.obj
+C:\Users\bogda\Desktop\BibMat\src\Vectori\VectoriMenu.cpp;C:\Users\bogda\Desktop\BibMat\x64\Debug\VectoriMenu.obj
