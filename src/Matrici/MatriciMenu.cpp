@@ -79,10 +79,7 @@ void MatriciMenu::handleInput()
 		if (event.type == sf::Event::Closed)
 			game->window.close();
 
-		if (event.type == sf::Event::KeyPressed) {
-
-			if (event.key.code == sf::Keyboard::Enter)
-			{
+		if (event.type == sf::Event::MouseButtonPressed) {
 				if (isSelectedASII)
 				{
 					isPressedASII = true;
@@ -95,56 +92,11 @@ void MatriciMenu::handleInput()
 				{
 					isPressedOM = true;
 				}
-				else
+				else if(isSeLectedInapoi)
 				{
 					isPressedInapoi = true;
 				}
 
-			}
-
-			else if (event.key.code == sf::Keyboard::Down && isSelectedASII)
-			{
-				isSelectedASII = false;
-				isSelectedTIM = true;
-				isSelectedOM = false;
-				isSeLectedInapoi = false;
-			}
-
-			else if (event.key.code == sf::Keyboard::Down && isSelectedTIM)
-			{
-				isSelectedASII = false;
-				isSelectedTIM = false;
-				isSelectedOM = true;
-				isSeLectedInapoi = false;
-			}
-
-			else if (event.key.code == sf::Keyboard::Down && isSelectedOM)
-			{
-				isSelectedASII = false;
-				isSelectedTIM = false;
-				isSelectedOM = false;
-				isSeLectedInapoi = true;
-			}
-			else if (event.key.code == sf::Keyboard::Up && isSeLectedInapoi)
-			{
-				isSelectedASII = false;
-				isSelectedTIM = false;
-				isSelectedOM = true;
-				isSeLectedInapoi = false;
-			}
-			else if (event.key.code == sf::Keyboard::Up && isSelectedOM)
-			{
-				isSelectedASII = false;
-				isSelectedTIM = true;
-				isSelectedOM = false;
-				isSeLectedInapoi = false;
-			}
-			else {
-				isSelectedASII = true;
-				isSelectedTIM = false;
-				isSelectedOM = false;
-				isSeLectedInapoi = false;
-			}
 		}
 	}
 
@@ -158,6 +110,11 @@ void MatriciMenu::update(double dt)
 	inapoi.setFillColor(sf::Color::White);
 
 	sf::Color selectedColor(0x0766ADFF);
+
+	isSelectedASII = game->isMouseOverText(adScInmImp);
+	isSelectedTIM = game->isMouseOverText(transpusaInverMat);
+	isSelectedOM = game->isMouseOverText(operatiiMatrice);
+	isSeLectedInapoi = game->isMouseOverText(inapoi);
 
 	if (isSelectedASII)
 	{

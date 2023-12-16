@@ -53,6 +53,9 @@ menuState::menuState(Game* game) {
 	inchideText.setString("Inchide");
 }
 
+
+
+
 void menuState::handleInput() {
 	sf::Event event;
 
@@ -60,40 +63,13 @@ void menuState::handleInput() {
 		if (event.type == sf::Event::Closed)
 			game->window.close();
 
-		if (event.type == sf::Event::KeyPressed) {
-			if (event.key.code == sf::Keyboard::Enter) {
+		if (event.type == sf::Event::MouseButtonPressed) {
+			
 				if (isSelectedPlay)
 					isPressedPlay = true;
 				else if (isSelectedVectori)
 					isPressedVectori = true;
-
-				else isPressedExit = true;
-			}
-
-			else if (event.key.code == sf::Keyboard::Down && isSelectedPlay) {
-				isSelectedPlay = false;
-				isSelectedVectori = true;
-				isSelectedExit = false;
-			}
-			else if (event.key.code == sf::Keyboard::Down && isSelectedVectori)
-			{
-				isSelectedPlay = false;
-				isSelectedVectori = false;
-				isSelectedExit = true;
-			}
-			else if (event.key.code == sf::Keyboard::Up && isSelectedExit)
-			{
-				isPressedPlay = false;
-				isSelectedVectori = true;
-				isSelectedExit = false;
-			}
-
-			else if (event.key.code == sf::Keyboard::Up && isSelectedVectori) {
-				isSelectedPlay = true;
-				isSelectedVectori = false;
-				isSelectedExit = false;
-			}
-			
+				else if(isSelectedExit) isPressedExit = true;	
 		}
 
 		break;
@@ -104,6 +80,11 @@ void menuState::update(double dt) {
 	matriciText.setFillColor(sf::Color::White);
 	inchideText.setFillColor(sf::Color::White);
 	vectoriText.setFillColor(sf::Color::White);
+
+
+	isSelectedPlay = game->isMouseOverText(matriciText);
+	isSelectedVectori = game->isMouseOverText(vectoriText);
+	isSelectedExit = game->isMouseOverText(inchideText);
 
 	sf::Color titleColor(0x29ADB2FF);
 	sf::Color selectedColor(0x0766ADFF);

@@ -1,47 +1,15 @@
-﻿  VectoriMenu.cpp
-C:\Users\bogda\Desktop\BibMat\src\Vectori\VectoriMenu.cpp(21,51): warning C4244: 'argument': conversion from 'T' to 'float', possible loss of data
+﻿  SPVector.cpp
+C:\Users\bogda\Desktop\BibMat\src\Vectori\SPVector.cpp(33,52): warning C4244: 'argument': conversion from 'int' to 'T', possible loss of data
           with
           [
-              T=unsigned int
+              T=float
           ]
-C:\Users\bogda\Desktop\BibMat\src\Vectori\VectoriMenu.cpp(34,38): warning C4244: 'argument': conversion from 'T' to 'float', possible loss of data
+C:\Users\bogda\Desktop\BibMat\src\Vectori\SPVector.cpp(33,42): warning C4244: 'argument': conversion from 'int' to 'T', possible loss of data
           with
           [
-              T=unsigned int
+              T=float
           ]
-C:\Users\bogda\Desktop\BibMat\src\Vectori\VectoriMenu.cpp(33,55): warning C4244: 'argument': conversion from 'T' to 'float', possible loss of data
-          with
-          [
-              T=unsigned int
-          ]
-C:\Users\bogda\Desktop\BibMat\src\Vectori\VectoriMenu.cpp(44,38): warning C4244: 'argument': conversion from 'T' to 'float', possible loss of data
-          with
-          [
-              T=unsigned int
-          ]
-C:\Users\bogda\Desktop\BibMat\src\Vectori\VectoriMenu.cpp(43,58): warning C4244: 'argument': conversion from 'T' to 'float', possible loss of data
-          with
-          [
-              T=unsigned int
-          ]
-C:\Users\bogda\Desktop\BibMat\src\Vectori\VectoriMenu.cpp(56,38): warning C4244: 'argument': conversion from 'T' to 'float', possible loss of data
-          with
-          [
-              T=unsigned int
-          ]
-C:\Users\bogda\Desktop\BibMat\src\Vectori\VectoriMenu.cpp(55,61): warning C4244: 'argument': conversion from 'T' to 'float', possible loss of data
-          with
-          [
-              T=unsigned int
-          ]
-C:\Users\bogda\Desktop\BibMat\src\Vectori\VectoriMenu.cpp(69,38): warning C4244: 'argument': conversion from 'T' to 'float', possible loss of data
-          with
-          [
-              T=unsigned int
-          ]
-C:\Users\bogda\Desktop\BibMat\src\Vectori\VectoriMenu.cpp(68,52): warning C4244: 'argument': conversion from 'T' to 'float', possible loss of data
-          with
-          [
-              T=unsigned int
-          ]
+C:\Users\bogda\Desktop\BibMat\src\Vectori\SPVector.cpp(49,20): warning C4018: '>': signed/unsigned mismatch
+C:\Users\bogda\Desktop\BibMat\src\Vectori\SPVector.cpp(51,45): warning C4244: 'argument': conversion from 'int' to 'float', possible loss of data
+C:\Users\bogda\Desktop\BibMat\src\Vectori\SPVector.cpp(51,35): warning C4244: 'argument': conversion from 'int' to 'float', possible loss of data
   BibMat.vcxproj -> C:\Users\bogda\Desktop\BibMat\x64\Debug\BibMat.exe

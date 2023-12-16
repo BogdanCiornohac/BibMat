@@ -3,6 +3,7 @@
 #include "menuState.h"
 
 
+
 Game::Game() {
 	window.create(sf::VideoMode(1200, 800), "BibMat");
 	window.setFramerateLimit(60);
@@ -10,6 +11,7 @@ Game::Game() {
 	window.clear(windowColor);
 
 	font.loadFromFile("fonts/Silkscreen-Regular.ttf");
+	
 }
 
 void Game::pushState(State* state) {
@@ -56,3 +58,9 @@ void Game::gameLoop() {
 		window.display();
 	}
 }
+
+bool Game::isMouseOverText(const sf::Text& text) {
+	sf::Vector2i mousePosition = sf::Mouse::getPosition(window);
+	return text.getGlobalBounds().contains(static_cast<float>(mousePosition.x), static_cast<float>(mousePosition.y));
+}
+

@@ -1,6 +1,7 @@
 #pragma once
 #include <stack>
 #include <SFML/Graphics.hpp>
+#include<SFML/Audio.hpp>
 #include <iostream>
 
 class State;
@@ -9,7 +10,7 @@ class Game
 {
 private:
 	std::stack<State*> states;
-
+	
 public:
 	sf::Font font;
 	sf::RenderWindow window;
@@ -21,4 +22,5 @@ public:
 	State* getState();
 
 	void gameLoop();
+	bool isMouseOverText(const sf::Text& text);
 };

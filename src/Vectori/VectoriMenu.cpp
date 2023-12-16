@@ -1,5 +1,6 @@
 #include "VectoriMenu.h"
 #include"../MenuState.h"
+#include "SPEState.h"
 
 
 VectoriMenu::VectoriMenu(Game* game)
@@ -79,10 +80,7 @@ void VectoriMenu::handleInput()
 		if (event.type == sf::Event::Closed)
 			game->window.close();
 
-		if (event.type == sf::Event::KeyPressed) {
-		
-			if (event.key.code == sf::Keyboard::Enter)
-			{
+		if (event.type == sf::Event::MouseButtonPressed) {
 				if (isSelectedSPE)
 				{
 					isPressedSPE = true;
@@ -95,56 +93,10 @@ void VectoriMenu::handleInput()
 				{
 					isPressedIS = true;
 				}
-				else
+				else if(isSeLectedInapoi)
 				{
 					isPressedInapoi = true;
 				} 
-
-			}
-
-			else if (event.key.code == sf::Keyboard::Down && isSelectedIS)
-			{
-				isSelectedIS = false;
-				isSelectedSPE = true;
-				isSelectedSE = false;
-				isSeLectedInapoi = false;
-			}
-
-			else if (event.key.code == sf::Keyboard::Down && isSelectedSPE)
-			{
-				isSelectedIS = false;
-				isSelectedSPE = false;
-				isSelectedSE = true;
-				isSeLectedInapoi = false;
-			}
-
-			else if (event.key.code == sf::Keyboard::Down && isSelectedSE)
-			{
-				isSelectedIS = false;
-				isSelectedSPE = false;
-				isSelectedSE = false;
-				isSeLectedInapoi = true;
-			}
-			else if(event.key.code == sf::Keyboard::Up && isSeLectedInapoi)
-			{
-				isSelectedIS = false;
-				isSelectedSPE = false;
-				isSelectedSE = true;
-				isSeLectedInapoi = false;
-			}
-			else if (event.key.code == sf::Keyboard::Up && isSelectedSE)
-			{
-				isSelectedIS = false;
-				isSelectedSPE = true;
-				isSelectedSE = false;
-				isSeLectedInapoi = false;
-			}
-			else {
-				isSelectedIS = true;
-				isSelectedSPE = false;
-				isSelectedSE = false;
-				isSeLectedInapoi = false;
-			}
 		}
 	}
 
@@ -158,6 +110,11 @@ void VectoriMenu::update(double dt)
 	inapoi.setFillColor(sf::Color::White);
 
 	sf::Color selectedColor(0x0766ADFF);
+
+	isSelectedSPE = game->isMouseOverText(sumaProdElem);
+	isSelectedSE = game->isMouseOverText(sortareElemente);
+	isSelectedIS = game->isMouseOverText(inmScalar);
+	isSeLectedInapoi = game->isMouseOverText(inapoi);
 
 	if (isSelectedSPE)
 	{
@@ -193,15 +150,15 @@ void VectoriMenu::update(double dt)
 		inapoi.setCharacterSize(40);
 	}
 
-	if (isPressedSPE)
+	 if (isPressedSE) {
+		isPressedSE = false;
+	}else if (isPressedSPE)
 	{
-		
-	}
-	else if (isPressedSE) {
-
+		isPressedSPE = false;
+		game->pushState(new SPEState(game));
 	}
 	else if (isPressedIS) {
-
+		isPressedIS = false;
 	}
 	else if (isPressedInapoi)
 	{
