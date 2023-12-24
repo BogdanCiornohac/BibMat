@@ -1,6 +1,8 @@
 #include "VectoriMenu.h"
 #include"../MenuState.h"
 #include "SPEState.h"
+#include "ISState.h"
+#include "SortareState.h"
 
 
 VectoriMenu::VectoriMenu(Game* game)
@@ -152,6 +154,7 @@ void VectoriMenu::update(double dt)
 
 	 if (isPressedSE) {
 		isPressedSE = false;
+		game->pushState(new SortareState(game));
 	}else if (isPressedSPE)
 	{
 		isPressedSPE = false;
@@ -159,6 +162,7 @@ void VectoriMenu::update(double dt)
 	}
 	else if (isPressedIS) {
 		isPressedIS = false;
+		game->pushState(new ISState(game));
 	}
 	else if (isPressedInapoi)
 	{

@@ -11,6 +11,8 @@ SPVector::SPVector() {
 	start = false;
 	isSum = true;
 
+	scalar = rand() % 100 + 1;
+
 	for (int i = 0; i < vectorSize; i++)
 	{
 		v[i] = rand() % 100 + 1;
@@ -24,7 +26,7 @@ SPVector::SPVector() {
 }
 
 void SPVector::deseneazaVector(Game *game) {
-	int linie = 0;
+	
 
 	sf::Color contur(0xC5E898);
 	sf::Color numberColor(0x0766ADFF);
@@ -46,9 +48,8 @@ void SPVector::deseneazaVector(Game *game) {
 		game->window.draw(operatie);
 
 		//creem patrat
-		if (i * inaltime > game->window.getSize().x)
-			linie += inaltime;
-		patrat.setPosition(i * inaltime + 40, 200 + linie);
+		
+		patrat.setPosition(i * inaltime + 40, 200 );
 		patrat.setFillColor(sf::Color::Transparent);
 		patrat.setOutlineColor(contur);
 		patrat.setOutlineThickness(2.0f);
@@ -94,7 +95,7 @@ void SPVector::deseneazaVector(Game *game) {
 				suma *= v[blinkingCellIndex];
 			}
 			blinkingCellIndex = blinkingCellIndex + 1;
-			if (blinkingCellIndex > vectorSize)
+			if (blinkingCellIndex >= vectorSize)
 				stopOperation();
 		}
 	}
@@ -103,19 +104,34 @@ void SPVector::deseneazaVector(Game *game) {
 void SPVector::reset()
 {
 	srand(static_cast<unsigned int>(time(0)));
+	int interval;
+
+	if (!isSum)
+	{
+		suma = 1;
+		interval = 10;
+	}
+	else
+	{
+		suma = 0;
+		interval = 100;
+
+	}
 
 	for (int i = 0; i < vectorSize; i++)
 	{
-		v[i] = rand() % 100 + 1;
+		v[i] = rand() % interval + 1;
 	}
 
 	blinkingCellIndex = 0;
-	suma = 0;
-
+	
 }
 
 void SPVector::seteazaOperatie(bool status) {
 	isSum = status;
+	
+	reset();
+	
 	if(status)
 		operatie.setString("Suma elementelor: ");
 	else
@@ -130,3 +146,92 @@ void SPVector::stopOperation() {
 	start = false;
 }
 
+
+void SPVector::deseneazaInmScalar(Game* game) {
+
+	sf::Color contur(0xC5E898);
+	sf::Color numberColor(0x0766ADFF);
+
+	for (int i = 0; i < vectorSize; i++) {
+		sf::RectangleShape patrat(sf::Vector2f(inaltime, inaltime));
+
+		//text
+		operatie.setString("Scalar: ");
+		operatie.setFont(game->font);
+		operatie.setPosition(40, 320);
+		operatie.setFillColor(numberColor);
+
+		sf::Text rez;
+
+		rez = operatie;
+		rez.setString(std::to_string(scalar));
+		rez.setPosition(operatie.getLocalBounds().width + 40, 320);
+		game->window.draw(rez);
+		game->window.draw(operatie);
+
+
+		//creem patrat
+
+		patrat.setPosition(i * inaltime + 40, 200);
+		patrat.setFillColor(sf::Color::Transparent);
+		patrat.setOutlineColor(contur);
+		patrat.setOutlineThickness(2.0f);
+
+
+		//text
+
+		sf::Text text;
+		text.setFont(game->font);
+		text.setString(to_string(v[i]));
+		text.setCharacterSize(20);
+		text.setFillColor(numberColor);
+		sf::FloatRect textBounds = text.getLocalBounds();
+		text.setPosition(patrat.getPosition().x + (inaltime - textBounds.width) / 2,
+			patrat.getPosition().y + (inaltime - textBounds.height) / 2.5);
+
+		if (start)
+		{
+			if (i == blinkingCellIndex)
+			{
+				patrat.setFillColor(sf::Color::White); // Empty text for blinking effect
+				string aux = to_string(v[i]) + "*" + to_string(scalar);
+				
+				text.setString(aux);
+				text.setCharacterSize(15);
+				text.setPosition(patrat.getPosition().x + (inaltime - textBounds.width) / 10,
+					patrat.getPosition().y + (inaltime - textBounds.height) / 2.3);
+			}
+			else
+			{
+				patrat.setFillColor(sf::Color::Transparent);
+			}
+		}
+
+
+		game->window.draw(patrat);
+		game->window.draw(text);
+
+
+	}
+
+	if (start)
+	{
+		if (blinkTimer.getElapsedTime().asMilliseconds() > 700)  
+		{
+			blinkTimer.restart();
+			v[blinkingCellIndex] *= scalar;
+			blinkingCellIndex = blinkingCellIndex + 1;
+			if (blinkingCellIndex >= vectorSize)
+				stopOperation();
+		}
+	}
+}
+
+int SPVector::getScalar()
+{
+	return scalar;
+}
+
+void SPVector::setScalar(int number) {
+	scalar = number;
+}

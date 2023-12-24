@@ -137,18 +137,24 @@
     <ClCompile Include="src\Game.cpp" />
     <ClCompile Include="src\Matrici\MatriciMenu.cpp" />
     <ClCompile Include="src\MenuState.cpp" />
+    <ClCompile Include="src\Vectori\ISState.cpp" />
+    <ClCompile Include="src\Vectori\SortareState.cpp" />
     <ClCompile Include="src\Vectori\SPEState.cpp" />
     <ClCompile Include="src\Vectori\SPVector.cpp" />
     <ClCompile Include="src\Vectori\VectoriMenu.cpp" />
+    <ClCompile Include="src\Vectori\VectorSortare.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="src\Game.h" />
     <ClInclude Include="src\Matrici\MatriciMenu.h" />
     <ClInclude Include="src\MenuState.h" />
     <ClInclude Include="src\State.h" />
+    <ClInclude Include="src\Vectori\ISState.h" />
+    <ClInclude Include="src\Vectori\SortareState.h" />
     <ClInclude Include="src\Vectori\SPEState.h" />
     <ClInclude Include="src\Vectori\SPVector.h" />
     <ClInclude Include="src\Vectori\VectoriMenu.h" />
+    <ClInclude Include="src\Vectori\VectorSortare.h" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">

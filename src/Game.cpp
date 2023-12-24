@@ -64,3 +64,7 @@ bool Game::isMouseOverText(const sf::Text& text) {
 	return text.getGlobalBounds().contains(static_cast<float>(mousePosition.x), static_cast<float>(mousePosition.y));
 }
 
+bool Game::isMouseOverButton(const sf::ConvexShape& shape) {
+	sf::Vector2i mousePosition = sf::Mouse::getPosition(window);
+	return shape.getGlobalBounds().contains(static_cast<float>(mousePosition.x), static_cast<float>(mousePosition.y));
+}

@@ -1,15 +1,16 @@
-﻿  SPVector.cpp
-C:\Users\bogda\Desktop\BibMat\src\Vectori\SPVector.cpp(33,52): warning C4244: 'argument': conversion from 'int' to 'T', possible loss of data
+﻿  VectorSortare.cpp
+C:\Users\bogda\Desktop\BibMat\src\Vectori\VectorSortare.cpp(27,49): warning C4244: 'argument': conversion from 'int' to 'T', possible loss of data
           with
           [
               T=float
           ]
-C:\Users\bogda\Desktop\BibMat\src\Vectori\SPVector.cpp(33,42): warning C4244: 'argument': conversion from 'int' to 'T', possible loss of data
+C:\Users\bogda\Desktop\BibMat\src\Vectori\VectorSortare.cpp(28,37): warning C4244: 'argument': conversion from 'int' to 'float', possible loss of data
+C:\Users\bogda\Desktop\BibMat\src\Vectori\VectorSortare.cpp(28,27): warning C4244: 'argument': conversion from 'size_t' to 'float', possible loss of data
+C:\Users\bogda\Desktop\BibMat\src\Vectori\VectorSortare.cpp(204,49): warning C4244: 'argument': conversion from 'int' to 'T', possible loss of data
           with
           [
               T=float
           ]
-C:\Users\bogda\Desktop\BibMat\src\Vectori\SPVector.cpp(49,20): warning C4018: '>': signed/unsigned mismatch
-C:\Users\bogda\Desktop\BibMat\src\Vectori\SPVector.cpp(51,45): warning C4244: 'argument': conversion from 'int' to 'float', possible loss of data
-C:\Users\bogda\Desktop\BibMat\src\Vectori\SPVector.cpp(51,35): warning C4244: 'argument': conversion from 'int' to 'float', possible loss of data
+C:\Users\bogda\Desktop\BibMat\src\Vectori\VectorSortare.cpp(215,37): warning C4244: 'argument': conversion from 'int' to 'float', possible loss of data
+C:\Users\bogda\Desktop\BibMat\src\Vectori\VectorSortare.cpp(215,27): warning C4244: 'argument': conversion from 'int' to 'float', possible loss of data
   BibMat.vcxproj -> C:\Users\bogda\Desktop\BibMat\x64\Debug\BibMat.exe

@@ -23,4 +23,5 @@ public:
 
 	void gameLoop();
 	bool isMouseOverText(const sf::Text& text);
+	bool isMouseOverButton(const sf::ConvexShape& shape);
 };
